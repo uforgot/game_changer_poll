@@ -10,8 +10,9 @@
         <section class="container graph">
             <div class="comment" :style="{'background-color':colors[highIndex]}">
                 행복지수는 {{average}}%입니다.<br>
-                {{titles[highIndex]}}에 대해서는 아래 정보를 확인하세요.<br>
-                <div style="font-size:1rem; margin-top:1.5em;">설문에 응모해 주셔서 감사합니다.</div>
+                {{titles[highIndex]}}에 대한 상담이 필요합니다.<br>
+                아래 정보를 확인하세요.<br>
+                <div style="font-size:1rem; margin-top:1.2em; opacity:0.5">설문에 응모해 주셔서 감사합니다.</div>
             </div>
             <div class="caption">
                 <table class="table is-fullwidth">
@@ -57,27 +58,36 @@
                 <!--<div class="caption">Social</div>-->
                 <!--<div class="caption">Financial</div>-->
             </div>
+            <div class="line"><img src="assets/images/line.png"></div>
         </section>
     </div>
 </template>
 
 <style scoped lang="scss">
+    .line {
+        position:absolute;
+        right:1px;
+        z-index:200;
+        opacity:1;
+        }
     .comment {
         z-index:100;
-        width:35%;
+        width:34%;
         position:absolute;
-        font-size:1.5rem;
+        font-size:1.3rem;
         font-weight:bold;
         bottom:0;
         color:#fff;
-        padding:1.5em;
-        border-radius:1em;
+        padding:1.8em;
+        border-radius:0.5rem;
+        left:18px;
         }
     table {
         background:none;
         }
     td {
         /*border:0;*/
+        padding:.5em 0;
         }
     .title {
         text-align:left;
@@ -91,15 +101,15 @@
     
     .graph {
         margin-top:4em;
-        margin-bottom:4em;
+        margin-bottom:0;
         background:#ffffff;
         height:600px;
         }
     .caption {
         z-index:100;
         position:absolute;
-        left:0;
-        width:35%;
+        left:18px;
+        width:34%;
         }
 </style>
 
@@ -132,7 +142,7 @@
                 let height = 600;
                 let initialAnimDelay = 300;
                 let arcAnimDelay = 150;
-                let arcAnimDur = 2500;
+                let arcAnimDur = 2000;
                 let secDur = 1000;
                 let secIndividualdelay = 150;
     
@@ -178,7 +188,7 @@
                 let back = svg.select('.back').datum([1]).selectAll('path').data(pie);
                 back.enter().append('path').attr({
                     'fill': function fill(d, i) {
-                        return 'rgba(255,242,102,0.4)';
+                        return 'rgb(247,247,247)';
                     },
                     'd':arc,
                     'stroke-width': '25px',
@@ -203,7 +213,8 @@
                         'd': arcArray[cnt],
                         'stroke-width': '25px',
                         'transform': function transform(d, i) {
-                            return 'rotate(-40, 0, 0)';
+                            // return 'rotate(-40, 0, 0)';
+                            return 'scale(0.5)';
                         }
                     }).style('opacity', 0).transition().delay(function (d, i) {
                         return i * arcAnimDelay + initialAnimDelay;

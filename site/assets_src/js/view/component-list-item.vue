@@ -7,14 +7,14 @@
 
 <template>
     <tr>
-        <td>{{data.title}}</td>
-        <td>{{data.comment}}</td>
-        <td>{{data.contact}}</td>
+        <td v-html="data.title"></td>
+        <td v-html="data.comment"></td>
+        <td v-html="data.contact"></td>
     </tr>
 </template>
 
 <style scoped lang="scss">
-    td {text-align:left; font-size:0.9rem; line-height:2em;}
+    td {text-align:left; font-size:0.9rem; line-height:1.5em; white-space:pre-line ; padding-top:1.2rem; padding-bottom:1.2rem; }
 </style>
 
 <script>

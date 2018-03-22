@@ -7,35 +7,43 @@
 
 <template>
     <section class="container poll" :style="{'border-color':data.color}">
-        <h1 class="title" :style="{color:data.color}">{{data.title}}</h1>
+        <!--<h1 class="title" :style="{color:data.color}">{{data.title}}</h1>-->
         <table class="table is-hoverable is-fullwidth">
             <thead>
             <tr>
                 <th :style="{color:data.color, 'border-color':data.color}"></th>
-                <th :style="{'border-color':data.color}">서비스 영역</th>
-                <th :style="{'border-color':data.color}">연락처</th>
+                <th :style="{'border-color':data.color}"></th>
+                <th :style="{'border-color':data.color}"></th>
             </tr>
             </thead>
             <tbody>
                 <component-list-item v-for="(list,index) in data.lists" :data="list" :key="index"></component-list-item>
             </tbody>
+            <tfoot>
+            <tr>
+                <th :style="{color:data.color, 'border-color':data.color}"></th>
+                <th :style="{'border-color':data.color}"></th>
+                <th :style="{'border-color':data.color}"></th>
+            </tr>
+            </tfoot>
         </table>
     </section>
 </template>
 
 <style scoped lang="scss">
-    h1 {position:absolute; font-size:1.5rem; line-height:0.5em;}
+    h1 {position:absolute; font-size:1.5rem; line-height:0.5em; top:-10px;}
     .poll {
         box-sizing:border-box;
-        border:solid 2px;
+        /*border:solid 1px;*/
         padding:1.2rem;
-        margin-bottom:2rem;
+        /*margin-bottom:2rem;*/
         background:#ffffff;
         }
     table {margin-bottom:0;}
-    th {text-align:center; font-size:1rem; font-weight:normal; line-height:1.2; padding-bottom:1em; vertical-align:middle; font-size:0.7rem;}
+    th {text-align:center; font-size:1rem; font-weight:normal; line-height:1.2em; padding-bottom:1em; vertical-align:middle; font-size:0.7rem;}
     th:first-child{width:20%; text-align:left; font-weight:bold; font-size:1.0rem; margin-left:20px;}
-    th:nth-child(2){width:40%;}
+    th:nth-child(2){width:50%;}
+    
 </style>
 
 <script>

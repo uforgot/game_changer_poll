@@ -30,7 +30,7 @@
     .title{position:absolute;}
     .poll {
         box-sizing:border-box;
-        border:solid 2px;
+        /*border:solid 1px;*/
         padding:1.2rem;
         margin-bottom:2rem;
         background:#ffffff;

@@ -20,19 +20,30 @@
                 </div>
             </div>
         </section>
-        <router-view></router-view>
+        <transition name="fade" mode="out-in">
+            <router-view></router-view>
+        </transition>
     </div>
 </template>
 
 <style scoped lang="scss">
+    .fade-enter-active, .fade-leave-active {
+        transition: opacity .5s;
+        opacity: 1;
+        }
+    .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+        transition: opacity .5s;
+        opacity: 0;
+        }
     .hero {
         height:280px;
         background:#3273dc;
         margin-bottom:2rem;
         
         h1 {
+            margin-top:1rem;
             color:#fff;
-            font-size:4rem;
+            font-size:3rem;
             text-align:center;
             padding:1rem;
             }
